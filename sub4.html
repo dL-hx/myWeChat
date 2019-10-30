@@ -1,0 +1,94 @@
+<!doctype html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<link href="css/mui.css" rel="stylesheet" />
+		<style type="text/css">
+			.code {
+				float: right;
+				width: 30px;
+			}
+			
+			.myweixin {
+				line-height: 30px;
+			}
+			
+			.myweixin img {
+				height: 60px;
+			}
+			
+			.mywallet {
+				font-size: 15px;
+				height: 50px;
+			}
+			
+			.mywallet img {
+				width: 25px;
+				height: 25px;
+			}
+		</style>
+	</head>
+
+	<body>
+		<script src="js/mui.js"></script>
+		<script type="text/javascript">
+			mui.init()
+		</script>
+		<div class="mui-content">
+			<ul class="mui-table-view">
+				<li class="mui-table-view-cell mui-media myweixin">
+					<a href="javascript:;">
+						<img class="mui-pull-left" src="img/f1.jpg">
+						<div class="mui-media-body">
+							&nbsp;&nbsp;幸福
+							<input type="image" src="img/code.png" class="code" />
+							<p class='mui-ellipsis'>&nbsp;&nbsp;微信号：wxid_123abc456</p>
+						</div>
+					</a>
+				</li>
+			</ul>
+			<br />
+			<ul class="mui-table-view mywallet">
+				<li class="mui-table-view-cell  mui-left" id="friend">
+					<img src="img/qb.png" align="absmiddle"> 钱包</span>
+				</li>
+			</ul>
+			<br />
+			<ul class="mui-table-view mywallet">
+				<li class="mui-table-view-cell  mui-left" id="friend">
+					<img src="img/sc.png" align="absmiddle"> 收藏</span>
+				</li>
+			</ul>
+			<ul class="mui-table-view mywallet">
+				<li class="mui-table-view-cell  mui-left" id="friend">
+					<img src="img/xc.png" align="absmiddle"> 相册</span>
+				</li>
+			</ul>
+			<ul class="mui-table-view mywallet">
+				<li class="mui-table-view-cell  mui-left" id="friend">
+					<img src="img/kb.png" align="absmiddle"> 卡包</span>
+				</li>
+			</ul>
+			<ul class="mui-table-view mywallet">
+				<li class="mui-table-view-cell  mui-left" id="friend">
+					<img src="img/biaoqian.png" align="absmiddle"> 标签</span>
+				</li>
+			</ul>
+			<br />
+
+			<ul class="mui-table-view mywallet">
+				<li class="mui-table-view-cell">
+					<a class="mui-navigate-right">
+						<span class="mui-badge mui-badge-danger">new</span>
+						<img src="img/sz.png" align="absmiddle"> 设置
+					</a>
+				</li>
+			</ul>
+
+		</div>
+	</body>
+
+</html>

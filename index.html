@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<title></title>
+		<script src="js/mui.min.js"></script>
+		<link href="css/mui.min.css" rel="stylesheet" />
+		<link href="css/main.css" rel="stylesheet" />
+
+		<script type="text/javascript" charset="utf-8">
+			mui.init();
+		</script>
+	</head>
+
+	<body>
+
+		<!--排版头部, 中部, 底部
+			mh: 头部
+			mt: tab 切换
+			mb  + enter mBody一个容器, 将mList进行包裹,mBody,设置了三段布局的中间效果
+			ml: mListView 图文列表
+		-->
+		<!--mh + enter-->
+		<header class="mui-bar mui-bar-nav">
+			<!--针对多个样式  , 第一个元素是公共的样式, 最后一个表示的是个性化的设置-->
+			<h1 class="mui-title">微信</h1>
+		</header>
+		<!--mt + enter-->
+		<nav class="mui-bar mui-bar-tab">
+			<!--锚点定位, 指定点击按钮所展示的页面是什么-->
+			<a class="mui-tab-item mui-active" href="sub1.html">
+				<span class="mui-icon mui-icon-weixin"></span>
+				<span class="mui-tab-label">微信</span>
+			</a>
+			<a class="mui-tab-item" href="sub2.html">
+				<span class="mui-icon mui-icon-contact"></span>
+				<span class="mui-tab-label">通讯录</span>
+			</a>
+			<a class="mui-tab-item" href="sub3.html">
+				<span class="mui-icon mui-icon-paperplane"></span>
+				<span class="mui-tab-label">发现</span>
+			</a>
+			<a class="mui-tab-item" href="sub4.html">
+				<span class="mui-icon mui-icon-person"></span>
+				<span class="mui-tab-label">我的</span>
+			</a>
+		</nav>
+
+	</body>
+
+</html>
+<!--
+	mui 框架是基于原生js 进行的开发, 可以在这里写原生的js代码
+	
+	如何把sub1 和sub2 的页面添加到主页面, 通过原生js 的方式进行加载
+-->
+<script type="text/javascript">
+	// 为了存取方便, 将4个子页面放入数组中,创建一个数组
+	var subPages = ['sub1.html', 'sub2.html', 'sub3.html', 'sub4.html']
+	// 当点击tab按钮的时候打开相应的页面
+	// 设置页面打开的样式, 一般将页面打开的样式放到json文件中,方便后面修改
+	var subPageStyle = { // 子页面样式
+		top: '44px',
+		bottom: '50px'
+	}
+
+	// 创建4个页面加载到面板中,将创建的页面塞入原生的应用窗体中, 使打开的效果接近原生应用
+	mui.plusReady(function() { //等硬件系统创建完毕
+		// 首先创建窗体
+		var self = plus.webview.currentWebview() // 拿到当前窗体
+		// 创建4个子窗体,形成一个4个子窗体的集合, 对每一个子页面塞入主窗体中
+		for(var i = 0; i < subPages.length; i++) {
+			var sub = plus.webview.create(subPages[i], subPages[i], subPageStyle)
+			sub.hide() // 把所有窗体隐藏后,然后加入窗体中
+			self.append(sub)
+
+		}
+		// 然后再将其塞入窗体中// 将第一个窗体显示出来
+		plus.webview.show(subPages[0]) // 将对应的id值显示出来
+	})
+
+	//点击底部导航切换 注册轻击事件
+	mui(".mui-bar-tab").on("tap", "a", function() {
+		var tagPage = this.getAttribute("href"); //tagPage(目标对象) 拿到herf 属性对应的值
+		plus.webview.show(tagPage, 'fade-in', 1000) // 设置页面切换的效果为 fade-in 淡入淡出, 默认为 slide-in-right `从右侧横向滑动效果`
+	})
+
+	//实现安卓手机连续按两次返回键退出程序
+	var first = null; // 设置一个开关(标志位), 判断是不是第一次按下
+	// 重写 mui.back 方法    (函数重写)                                                                               
+	mui.back = function() {
+		if(!first) {// 首次按下
+			first = new Date().getTime();
+			mui.toast("再按一次退出应用程序")
+			setTimeout(function() {
+				first = null;// 1s 钟后没有按下, first清空
+			}, 1000)
+		} else {
+			if(new Date().getTime() - first < 1000) {// 间隔小于1s钟退出程序
+				plus.runtime.quit();
+			}
+		}
+	}
+</script>

@@ -1,0 +1,21 @@
+/*修改源码的样式, 覆盖框架的css 样式*/
+.mui-bar-nav{
+	/*背景色改为黑色*/
+	background-color: #000000;
+}
+
+.mui-title{
+	/*文字改成白色, color 前景色*/
+	color: #fff;
+}
+
+.mui-pull-left{ /*修改箭头颜色为白色*/
+	color: #fff;
+}
+
+.mui-active .mui-tab-label,.mui-active .mui-icon{/*当前的活动页签的label颜色为绿色, 处于活动状态的label标签下的icon变为绿色(, 多元素选择器)*/
+	/*tab栏文字改成绿色, color 前景色*/
+	color: #44bf19;
+}
+
+

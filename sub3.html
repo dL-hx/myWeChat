@@ -1,0 +1,66 @@
+<!doctype html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<link href="css/mui.min.css" rel="stylesheet" />
+		<script src="js/mui.min.js"></script>
+		<style type="text/css">
+			.mui-table-view-cell {
+				padding: 5px 15px;
+				font-size: 18px;
+			}
+			
+			.mui-table-view-cell img {
+				width: 30px;
+				height: 30px;
+				vertical-align: middle;
+			}
+		</style>
+
+		<script type="text/javascript">
+			mui.init()
+		</script>
+	</head>
+
+	<body>
+		<div class="mui-content">
+			<ul class="mui-table-view">
+				<li class="mui-table-view-cell mui-left" id="friend">
+					<img src="img/pengyouquan.png" /> 朋友圈
+				</li>
+			</ul>
+			<!--给ul 标签上下间距, 这里是div给高度, 也可以给 .mui-table-view  margin属性---->
+			<div style="height:25px"></div>
+
+			<ul class="mui-table-view">
+				<li class="mui-table-view-cell  mui-left">
+					<img src="img/saoyisao.png" /> 扫一扫
+				</li>
+				<li class="mui-table-view-cell  mui-left">
+					<img src="img/yaoyiyao.jpg" /> 摇一摇
+				</li>
+			</ul>
+
+			<div style="height:25px"></div>
+
+			<ul class="mui-table-view">
+				<li class="mui-table-view-cell  mui-left">
+					<img src="img/yx.png" /> 游戏
+				</li>
+			</ul>
+		</div>
+	</body>
+
+</html>
+<script type="text/javascript">
+	var pyqDom = document.getElementById('friend')
+	pyqDom.addEventListener('tap', function() {
+		mui.openWindow({
+			url: "sub3_pyq_header.html",
+			id: "sub3_pyq_header.html"
+		})
+	})
+</script>

@@ -1,0 +1,111 @@
+{
+  "index.html": {
+    "resources": [
+      "sub1.html",
+      "sub2.html",
+      "js/mui.min.js",
+      "css/mui.min.css",
+      "css/main.css"
+    ],
+    "refer": [
+      "sub4.html",
+      "sub3.html",
+      "sub2.html",
+      "sub1.html"
+    ]
+  },
+  "sub1.html": {
+    "refer": [
+      "sub1_Chat.html"
+    ],
+    "resources": [
+      "css/mui.min.css",
+      "js/mui.min.js",
+      "img/jd.png",
+      "img/tb.png",
+      "img/guomei.png",
+      "img/juhuasuan.png",
+      "img/ymx.png"
+    ]
+  },
+  "sub3.html": {
+    "refer": [
+      "sub3_pyq_header.html"
+    ],
+    "resources": [
+      "css/mui.min.css",
+      "js/mui.min.js",
+      "img/pengyouquan.png",
+      "img/saoyisao.png",
+      "img/yaoyiyao.jpg",
+      "img/yx.png"
+    ]
+  },
+  "sub3_pyq_header.html": {
+    "resources": [
+      "sub3_pyq_list.html",
+      "css/mui.min.css",
+      "css/main.css",
+      "js/mui.min.js"
+    ],
+    "refer": [
+      "sub3_pyq_list.html"
+    ]
+  },
+  "sub3_pyq_list.html": {
+    "href": "sub3_pyq_list.html",
+    "resources": [
+      "img/3.jpg",
+      "css/mui.min.css",
+      "css/main.css",
+      "js/mui.min.js",
+      "img/2.jpg",
+      "img/1.jpg"
+    ],
+    "refer": [],
+    "priority": 0
+  },
+  "sub1_Chat.html": {
+    "href": "sub1_Chat.html",
+    "resources": [
+      "css/mui.min.css",
+      "css/main.css",
+      "js/mui.min.js"
+    ],
+    "refer": [],
+    "priority": 0
+  },
+  "sub2.html": {
+    "href": "sub2.html",
+    "resources": [
+      "css/mui.css",
+      "js/mui.js",
+      "img/xinpengyou.png",
+      "img/qunliao.png",
+      "img/biaoqian.png",
+      "img/gzh.png",
+      "img/f2.jpg",
+      "img/f1.jpg",
+      "img/f3.jpg"
+    ],
+    "refer": [],
+    "priority": 0
+  },
+  "sub4.html": {
+    "href": "sub4.html",
+    "resources": [
+      "css/mui.css",
+      "js/mui.js",
+      "img/qb.png",
+      "img/sc.png",
+      "img/xc.png",
+      "img/kb.png",
+      "img/biaoqian.png",
+      "img/f1.jpg",
+      "img/sz.png",
+      "img/code.png"
+    ],
+    "refer": [],
+    "priority": 0
+  }
+}
