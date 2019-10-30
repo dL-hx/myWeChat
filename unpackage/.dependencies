@@ -1,0 +1,109 @@
+{
+  "sub3_pyq_list.html": {
+    "href": "sub3_pyq_list.html",
+    "resources": [
+      "img/3.jpg",
+      "css/mui.min.css",
+      "fonts/mui.ttf",
+      "css/main.css",
+      "js/mui.min.js",
+      "img/2.jpg",
+      "img/1.jpg"
+    ],
+    "priority": 0
+  },
+  "sub3_pyq_header.html": {
+    "href": "sub3_pyq_header.html",
+    "resources": [
+      "css/mui.min.css",
+      "fonts/mui.ttf",
+      "css/main.css",
+      "js/mui.min.js"
+    ],
+    "refer": [],
+    "priority": 0
+  },
+  "sub3.html": {
+    "href": "sub3.html",
+    "resources": [
+      "css/mui.min.css",
+      "fonts/mui.ttf",
+      "js/mui.min.js",
+      "img/pengyouquan.png",
+      "img/saoyisao.png",
+      "img/yaoyiyao.jpg",
+      "img/yx.png"
+    ],
+    "refer": [],
+    "priority": 0
+  },
+  "sub1_Chat.html": {
+    "href": "sub1_Chat.html",
+    "resources": [
+      "css/mui.min.css",
+      "fonts/mui.ttf",
+      "css/main.css",
+      "js/mui.min.js"
+    ],
+    "priority": 1
+  },
+  "sub1.html": {
+    "href": "sub1.html",
+    "resources": [
+      "css/mui.min.css",
+      "fonts/mui.ttf",
+      "js/mui.min.js",
+      "img/jd.png",
+      "img/tb.png",
+      "img/guomei.png",
+      "img/juhuasuan.png",
+      "img/ymx.png"
+    ],
+    "refer": [],
+    "priority": 1
+  },
+  "sub2.html": {
+    "href": "sub2.html",
+    "resources": [
+      "css/mui.css",
+      "fonts/mui.ttf",
+      "js/mui.js",
+      "img/xinpengyou.png",
+      "img/qunliao.png",
+      "img/biaoqian.png",
+      "img/gzh.png",
+      "img/f2.jpg",
+      "img/f1.jpg",
+      "img/f3.jpg"
+    ],
+    "priority": 2
+  },
+  "sub4.html": {
+    "href": "sub4.html",
+    "resources": [
+      "css/mui.css",
+      "fonts/mui.ttf",
+      "js/mui.js",
+      "img/qb.png",
+      "img/sc.png",
+      "img/xc.png",
+      "img/kb.png",
+      "img/biaoqian.png",
+      "img/f1.jpg",
+      "img/sz.png",
+      "img/code.png"
+    ],
+    "priority": 3
+  },
+  "index.html": {
+    "href": "index.html",
+    "resources": [
+      "js/mui.min.js",
+      "css/mui.min.css",
+      "fonts/mui.ttf",
+      "css/main.css"
+    ],
+    "refer": [],
+    "priority": 0
+  }
+}

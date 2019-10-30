@@ -1,0 +1,107 @@
+<!doctype html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<link href="css/mui.min.css" rel="stylesheet" />
+		<!--引入main.css 复用样式代码, 使得样式被复用, (改变头部样式标题背景色为黑色, 文字颜色,箭头颜色为白色)-->
+		<link href="css/main.css" rel="stylesheet" />
+		<script src="js/mui.min.js"></script>
+		<script type="text/javascript">
+			mui.init()
+		</script>
+	</head>
+
+	<body>
+		<!--mh 带返回箭头的头部-->
+		<header class="mui-bar mui-bar-nav">
+			<a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
+			<h1 class="mui-title"></h1>
+		</header>
+
+		<!--创建容器放置聊天信息,将内容放到主体内容中去-->
+		<!--mb + enter-->
+		<div class="mui-content">
+			<div class="msg">此处为聊天消息</div>
+			<!--mb + enter-->
+			<button type="button" id="gallery" class="mui-btn mui-btn-blue">选择照片</button>
+			<button type="button" id="camera" class="mui-btn mui-btn-yellow">摄像头</button>
+			<button type="button" id="getacc" class="mui-btn mui-btn-green">重力感应</button>
+			<button type="button" id="stopacc" class="mui-btn mui-btn-red">停止重力感应</button>
+		</div>
+	</body>
+
+</html>
+
+<script type="text/javascript">
+	// 在硬件系统准备完毕后, 使用从sub.html 中传递过来的 属性值(title的值)
+	mui.plusReady(function() { //等硬件系统创建完毕
+		var cw = plus.webview.currentWebview() // 拿到当前窗体(显示的是哪个窗体, 当前就是哪个窗体)
+		// 既然是前一个页面传递的title 属性, 前一个页面会为当前页面注册一个title 属性
+		var titleName = cw.title // 拿到前面页面传递过来的title 属性
+
+		// 找到header 标签,将titleName的值设置为它的内容
+		var header = document.querySelector('.mui-title')
+		header.innerText = titleName
+	})
+
+	var msgDom = document.querySelector('.msg')
+	var galleryBtn = document.getElementById('gallery')
+	var cameraBtn = document.querySelector('#camera')
+	var getaccBtn = document.getElementById('getacc')
+
+	galleryBtn.addEventListener('tap', function() {
+		// 调用相册
+		plus.gallery.pick(
+			function(path) {
+				var img = "";
+				for(var i in path.files) {
+					img += "<img width=100 height=100 src=" + path.files[i] + "/>"
+					msgDom.innerHTML = img;
+				}
+
+			},
+			function(error) {
+				//选取失败，输出错误信息
+				msgDom.innerHTML = error.message;
+			}, { //设置只选取图片，可以多张
+				filter: "image",
+				multiple: true
+			}
+		)
+	})
+
+	cameraBtn.addEventListener("tap", function() {
+		var cameraDom = plus.camera.getCamera(1); //1取到主摄像头
+		cameraDom.captureImage(
+			function(path) {
+				var url = "file://" + plus.io.convertLocalFileSystemURL(path); // 拿到本地url图片地址
+				var img = "<img width=200 height=200 src=" + url + "/>";
+				msgDom.innerHTML = img;
+			}
+		)
+
+	})
+
+	var wid = null;
+	getaccBtn.addEventListener("tap", function() {
+		// getCurrentAcceleration 获取当前重力感应加速度
+		// watchAcceleration 持续获取
+		// plus.accelerometer.getCurrentAcceleration(function(e) {
+		//		plus.nativeUI.alert("Acceleration\nx:" + e.xAxis + "\ny:" + e.yAxis + "\nz:" + e.zAxis);
+		// msgDom.innerText = "x:" + e.xAxis + "\ny:" + e.yAxis + "\nz:" + e.zAxis
+		//	});
+		// 监听重力感应的值 
+		wid = plus.accelerometer.watchAcceleration(function(e) {
+			//plus.nativeUI.alert("x:" + e.xAxis + "\ny:" + e.yAxis + "\nz:" + e.zAxis);
+			msgDom.innerText = "x:" + e.xAxis + "\ny:" + e.yAxis + "\nz:" + e.zAxis
+		}); 
+		var stopaccBtn = document.getElementById("stopacc"); 
+		stopaccBtn.addEventListener("tap", function(e) {   // 停止监控重力感应
+			plus.accelerometer.clearWatch(wid);  
+			msgDom.innerText = "停止监控重力感应";
+		})
+	})
+</script>
